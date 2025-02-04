@@ -11,5 +11,5 @@ python
 >>> import yolo3
 ```
 
-우분투 이용시 18.04 (도커 이용) `docker run --rm -it -v /mnt/lv01/tommy/catchcam:/data1 kneron/toolchain:latest`
-주의 (접촉불량의 가능성 있음 -> usb 모든 연결 확인)
+- 우분투 이용시 18.04 (도커 이용) `docker run --rm -it -v /mnt/lv01/tommy/catchcam:/data1 kneron/toolchain:latest`
+- 주의 (접촉불량의 가능성 있음 -> usb 모든 연결 확인)
