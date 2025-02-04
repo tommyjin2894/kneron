@@ -1,9 +1,40 @@
-[docs_example](https://doc.kneron.com/docs/#toolchain/appendix/yolo_example_InModelPreproc_trick/)
+### docker 가져오고 실행하기
+[tool chain](https://doc.kneron.com/docs/#toolchain/manual_2_deploy/)
 
-- 테스트 한 tool chain 버전
-  - `docker run --rm -it -v /mnt/lv01/tommy/catchcam:/data1 kneron/toolchain:v0.17.2`
-  - `docker run --rm -it -v /mnt/lv01/tommy/catchcam:/data1 kneron/toolchain:latest`
+```bash
+docker pull kneron/toolchain:latest
+docker run --rm -it -v /mnt/docker:/docker_mount kneron/toolchain:latest
+# 오류날 시에 실행 : docker run --rm -it -v /mnt/lv01/tommy/catchcam:/data1 kneron/toolchain:v0.17.2
+```
 
+- webgui 로 실행
+```bash
+docker run -t -d -p 8180:8180 --name toolchain_webgui -w /workspace kneron/toolchain:latest /workspace/webgui/runWebGUI.sh
+
+### http://127.0.0.1:8180/. 로 접속
+```
+
+- 폴더 구조
+  ```text
+  /workspace
+  |-- E2E_Simulator       # End to end simulator
+  |-- ai_training         # AI training project.
+  |-- cmake               # Environment
+  |-- examples            # Example for the workflow, will be used later.
+  |-- libs                # The libraries
+  |   |-- ONNX_Convertor  # ONNX Converters and optimizer scripts, will be discussed in section 3.
+  |   |-- c_sim_[version] # Hardware simulators for specific hardware versions.
+  |   |-- compiler        # Compiler for the hardware and the IP evaluator to infer the performance.
+  |   |-- dynasty         # Simulator which only simulates the calculation.
+  |   `-- fpAnalyser      # Analyze the model and provide fixed point information.
+  |-- miniconda           # Environment
+  |-- scripts             # Scripts to run the tools, will be discussed in section 3.
+  |-- webgui              # Web GUI for the toolchain. Please check appendix for details.
+  `-- version.txt
+  ```
+
+### yolo3 실행시
+[yolo3 docs_example](https://doc.kneron.com/docs/#toolchain/appendix/yolo_example_InModelPreproc_trick/)
 
 - yolo3 가 있는 상위 폴더로 가서 import yolo3
   ```bash
