@@ -58,3 +58,6 @@ docker run -t -d -p 8180:8180 --name toolchain_webgui -w /workspace kneron/toolc
 
 - 우분투 이용시 18.04 (도커 이용) `docker run --rm -it -v /mnt/lv01/tommy/catchcam:/data1 kneron/toolchain:latest`
 - 접촉불량의 가능성 있음 -> usb 연결 확인
+
+### 참고 자료
+[fire detection](https://github.com/spacewalk01/yolov5-fire-detection)
