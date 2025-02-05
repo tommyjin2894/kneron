@@ -46,7 +46,7 @@ docker run -t -d -p 8180:8180 --name toolchain_webgui -w /workspace kneron/toolc
   `-- version.txt
   ```
 
-### yolo3 실행시
+### yolo3 실행시 (outdated)
 [yolo3 docs_example](https://doc.kneron.com/docs/#toolchain/appendix/yolo_example_InModelPreproc_trick/)
 
 - yolo3 가 있는 상위 폴더로 가서 import yolo3
