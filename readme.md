@@ -1,3 +1,16 @@
+# Vienna USER GUIDE
+Vienna SDK with KLM5S3 SoC platform
+
+### 필요 패키지
+- Toolchain (리눅스 18.04 필요)
+- Embedded Linux software packages
+- Root file system and utils
+- KLM5S3 EVM(evaluation module)
+
+### yoloX guide link
+- [yoloX](https://doc.kneron.com/docs/#model_training/OpenMMLab/YoloX/)
+  - pt -> onnx -> bie -> nef(destination)
+
 ### docker 가져오고 실행하기
 [tool chain](https://doc.kneron.com/docs/#toolchain/manual_2_deploy/)
 
