@@ -60,11 +60,11 @@ docker run -t -d -p 8180:8180 --name toolchain_webgui -w /workspace kneron/toolc
 - 접촉불량의 가능성 있음 -> usb 연결 확인
 
 ### 참고 자료
-[fire detection](https://github.com/spacewalk01/yolov5-fire-detection)
-[f2](https://github.com/MuhammadMoinFaisal/FireDetectionYOLOv8)
-[f3](https://www.hackster.io/innovation4x/early-fire-detection-using-ai-dd27bf)
-[산불감지](https://www.mdpi.com/1999-4907/15/1/204)
-[fire dataset](https://www.kaggle.com/datasets/phylake1337/fire-dataset/data)
-[화재 데이터셋 공공](https://aihub.or.kr/aihubdata/data/list.do?searchKeyword=%ED%99%94%EC%9E%AC)
-Fire-YOLOv5s
-GCM-YOLO
+- [fire detection](https://github.com/spacewalk01/yolov5-fire-detection)
+- [f2](https://github.com/MuhammadMoinFaisal/FireDetectionYOLOv8)
+- [f3](https://www.hackster.io/innovation4x/early-fire-detection-using-ai-dd27bf)
+- [산불감지](https://www.mdpi.com/1999-4907/15/1/204)
+- [fire dataset](https://www.kaggle.com/datasets/phylake1337/fire-dataset/data)
+- [화재 데이터셋 공공](https://aihub.or.kr/aihubdata/data/list.do?searchKeyword=%ED%99%94%EC%9E%AC)
+- Fire-YOLOv5s
+- GCM-YOLO
