@@ -2,7 +2,7 @@
 Vienna SDK with KLM5S3 SoC platform
 
 ### 필요 패키지
-- Toolchain (리눅스 18.04 필요)
+- Toolchain (리눅스 18.04 <docker env>)
 - Embedded Linux software packages
 - Root file system and utils
 - KLM5S3 EVM(evaluation module)
