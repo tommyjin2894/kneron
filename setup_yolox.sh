@@ -15,7 +15,7 @@ conda activate kneron
 apt update && apt install -y software-properties-common # 소프트웨어 관리도구 추가
 apt install git-all # 깃 설치
 apt install unzip # unzip 설치
-  
+#----------------------------------------------------------------------------------------#
 # 컴파일러 설치
 add-apt-repository ppa:ubuntu-toolchain-r/test -y
 apt update
@@ -27,11 +27,12 @@ update-alternatives --config gcc
 gcc --version
 g++ --version
 
+#----------------------------------------------------------------------------------------#
+# in conda
 pip install torch==2.6.0
 pip install numpy==2.0.2
 pip install torchvision==0.21.0
-pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu121/torch2.6.0/index.html
-pip install mmcv
+pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu124/torch2.6.0/index.html
 pip install onnx
 pip install onnxoptimizer
 
@@ -40,3 +41,4 @@ cd kneron-mmdetection
 
 pip install -r requirements/build.txt
 pip install -v -e .
+#----------------------------------------------------------------------------------------#
