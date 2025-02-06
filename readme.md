@@ -43,46 +43,55 @@ Vienna SDK with KLM5S3 SoC platform
     |-- webgui              # Web GUI for the toolchain. Please check appendix for details.
     `-- version.txt
     ```
-YoloX 변환
+### YoloX 훈련을 위한 과정
 - [yoloX](https://doc.kneron.com/docs/#model_training/OpenMMLab/YoloX/)
-  - pt -> onnx -> bie -> nef(destination)
   - NVIDIA Container Toolkit
     - https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
  
     `sudo apt-get install -y nvidia-container-toolkit`
   
-  - 도커 Pull
-    ```bash
-    docker pull nvidia/cuda:12.1.0-devel-ubuntu18.04
-    docker run -v /home/tommy/Documents/ubuntu1804inst/ -it --rm --gpus all nvidia/cuda:12.1.0-devel-ubuntu18.04
-    ```
+- 도커 Pull
+  ```bash
+  docker pull nvidia/cuda:12.1.0-devel-ubuntu18.04
+  docker run -v /home/tommy/Documents/ubuntu1804inst/:/workspace -it --rm --gpus all nvidia/cuda:12.1.0-devel-ubuntu18.04
+  ```
     
-  - wget 설치
-    ```
-    apt-get update
-    apt-get install wget
-    ```
+- wget 설치
+  ```
+  apt-get update
+  apt-get install wget
+  ```
     
-  - miniconda 설치
-    ```
-    mkdir -p ~/miniconda3
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
-    bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
-    rm ~/miniconda3/miniconda.sh
+- miniconda 설치
+  ```
+  mkdir -p ~/miniconda3
+  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+  bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+  rm ~/miniconda3/miniconda.sh
 
-    source ~/miniconda3/bin/activate
-    conda init --all
-    ```
+  source ~/miniconda3/bin/activate
+  conda init --all
+  ```
 
-    ```
-    conda create -n kneron python==3.9
-    conda activate kneron
-    ```
+  ```
+  conda create -n kneron python==3.9
+  conda activate kneron
+  ```
   소프트웨어 관리도구 추가
   ```
   apt update && apt install -y software-properties-common
   ```
 
+  깃 설치
+  ```
+  apt install git-all
+  ```
+
+  unzip 설치
+  ```
+  sudo apt install unzip
+  ```
+  
   컴파일러 설치
   ```
   add-apt-repository ppa:ubuntu-toolchain-r/test -y
@@ -101,9 +110,43 @@ YoloX 변환
   ```
   pip install torch==2.6.0
   pip install numpy==2.0.2
+  pip install torchvision==0.21.0
   pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu121/torch2.6.0/index.html
+  pip install mmcv
+  pip install onnx
+  pip install onnxoptimizer
   ```
-    
+
+  ```
+  git clone https://github.com/kneron/kneron-mmdetection
+  cd kneron-mmdetection
+  ```
+
+  ```
+  pip install -r requirements/build.txt
+  pip install -v -e .
+  ```
+
+---
+### 사전 훈련 모델 이용
+```
+mkdir work_dirs
+cd work_dirs
+wget https://github.com/kneron/Model_Zoo/raw/main/mmdetection/yolox_s/latest.zip
+unzip latest.zip
+cd ..
+```
+  
+---
+### onnx -> nef
+- 도커 Pull
+  ```bash
+  sudo docker run --rm -it -v /mnt/hgfs/Competition:/data1 kneron/toolchain:latest
+
+  pip install jupyter notebook
+  
+  ```
+
 ---
 ### yolo3 실행시 (outdated)
 [yolo3 docs_example](https://doc.kneron.com/docs/#toolchain/appendix/yolo_example_InModelPreproc_trick/)
