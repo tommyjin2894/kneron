@@ -57,7 +57,7 @@ Vienna SDK with KLM5S3 SoC platform
   docker run -v /mnt/hgfs/1804/:/workspace -it --rm --gpus all nvidia/cuda:12.1.0-devel-ubuntu18.04
   ```
 
-
+- 'cd /workspace'
 - 필요 tool 설치
   ```
   chmod +x setup_yolox.sh
