@@ -53,78 +53,14 @@ Vienna SDK with KLM5S3 SoC platform
 - 도커 Pull
   ```bash
   docker pull nvidia/cuda:12.1.0-devel-ubuntu18.04
-  docker run -v /home/tommy/Documents/ubuntu1804inst/:/workspace -it --rm --gpus all nvidia/cuda:12.1.0-devel-ubuntu18.04
-  ```
-    
-- wget 설치
-  ```
-  apt-get update
-  apt-get install wget
-  ```
-    
-- miniconda 설치
-  ```
-  mkdir -p ~/miniconda3
-  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
-  bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
-  rm ~/miniconda3/miniconda.sh
-
-  source ~/miniconda3/bin/activate
-  conda init --all
+  docker run -v /mnt/hgfs/1804/:/workspace -it --rm --gpus all nvidia/cuda:12.1.0-devel-ubuntu18.04
   ```
 
-  ```
-  conda create -n kneron python==3.9
-  conda activate kneron
-  ```
-  소프트웨어 관리도구 추가
-  ```
-  apt update && apt install -y software-properties-common
-  ```
 
-  깃 설치
+- 필요 tool 설치
   ```
-  apt install git-all
-  ```
-
-  unzip 설치
-  ```
-  sudo apt install unzip
-  ```
-  
-  컴파일러 설치
-  ```
-  add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  apt update
-  apt install -y gcc-9 g++-9
-
-  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 \
-  --slave /usr/bin/g++ g++ /usr/bin/g++-9
-  update-alternatives --config gcc
-
-  # 버전 확인
-  gcc --version
-  g++ --version
-  ```
-
-  ```
-  pip install torch==2.6.0
-  pip install numpy==2.0.2
-  pip install torchvision==0.21.0
-  pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu121/torch2.6.0/index.html
-  pip install mmcv
-  pip install onnx
-  pip install onnxoptimizer
-  ```
-
-  ```
-  git clone https://github.com/kneron/kneron-mmdetection
-  cd kneron-mmdetection
-  ```
-
-  ```
-  pip install -r requirements/build.txt
-  pip install -v -e .
+  chmod +x setup_yolox.sh
+  ./setup_yolox.sh
   ```
 
 ---
