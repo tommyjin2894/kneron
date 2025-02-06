@@ -16,3 +16,8 @@ pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/ascend/torch1.
   tommy@tommy:/mnt/hgfs/1804$ docker commit 64f0a4e0991b crazy2894/mmcv:latest
   ```
 ---
+
+- 커스텀 이미지
+```
+docker run -v /mnt/hgfs/1804/:/workspace -it --rm --gpus all crazy2894/mmcv:latest
+```
