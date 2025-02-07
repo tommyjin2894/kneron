@@ -5,8 +5,9 @@
   ```bash
   docker pull kneron/toolchain:latest
   docker run --rm -it -v /mnt/docker:/docker_mount kneron/toolchain:latest
-  # 오류날 시에 실행 : docker run --rm -it -v /mnt/lv01/tommy/catchcam:/data1 kneron/toolchain:v0.17.2
+  # 오류날 시에 실행 : docker run --rm -it -v /mnt/lv01/tommy/catchcam:/data1 kneron/toolchain:v0.24.0
   ```
+  
 
   - webgui 로 실행
   ```bash
